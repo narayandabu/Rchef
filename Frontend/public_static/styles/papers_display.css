@@ -1,0 +1,109 @@
+.papers-display-container {
+  height: auto;
+  overflow-y: visible;
+  padding: 20px ;
+  background-color: #0b0c10;
+  color: #f1f1f1;
+  box-sizing: border-box;
+}
+.Main-title {
+  margin: 20px 0 10px;
+  color: #66fcf1;
+  padding-left: 45%;
+}
+.section-title {
+  font-size: 1.5rem;
+  margin: 20px 0 10px;
+  color: #66fcf1;
+}
+
+/* NEW: horizontal scrolling row */
+.papers-row-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 16px;
+  padding-bottom: 15px;
+  scrollbar-color: #45a29e transparent;
+  scrollbar-width: thin;
+}
+
+.papers-row-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+.papers-row-scroll::-webkit-scrollbar-thumb {
+  background: #45a29e;
+  border-radius: 10px;
+}
+.more-papers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem 1rem;
+  width: auto;
+  justify-content: left;
+  align-items: center;
+  margin-top: 20px;
+  padding: 10px 20px;
+  color: #0b0c10;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 1rem;
+  align-items: stretch;
+}
+.paper-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 280px;
+  max-width: 280px;
+  max-height: 300px;
+  background: #1f2833;
+  justify-content: space-between;
+  border: 1px solid #45a29e22;
+  border-radius: 10px;
+  padding: 15px;
+  flex: 1 1 280px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease-in-out;
+}
+
+.paper-card:hover {
+  transform: translateY(-5px);
+}
+
+.paper-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #66fcf1;
+  margin-bottom: 10px;
+}
+
+.paper-abstract {
+  font-size: 0.9rem;
+  color: #c5c6c7;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.paper-meta {
+  font-size: 0.8rem;
+  color: #a2a5a7;
+  margin-bottom: 10px;
+}
+
+.paper-badge {
+  display: inline-block;
+  background-color: #45a29e;
+  color: #0b0c10;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  margin-top: 5px;
+}
+
+.read-more {
+  display: inline-block;
+  font-size: 0.85rem;
+  color: #66fcf1;
+  text-decoration: none;
+  margin-top: 10px;
+}

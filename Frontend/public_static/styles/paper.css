@@ -1,0 +1,99 @@
+.paper-preview-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  bottom: 2rem;
+  padding: 2rem;
+  background-color: rgba(11, 12, 16, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(10px);
+}
+
+.paper-preview-container {
+  background-color: #0b0c10;
+  padding: 2rem;
+  border-radius: 20px;
+  max-width: 900px;
+  width: 100%;
+  max-height: 75vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgba(102, 252, 241, 0.2);
+  animation: fadeIn 0.3s ease-in-out;
+  position: relative;
+  bottom: 3rem;
+  top:0.1rem;
+  z-index: 4000;
+}
+
+.close-button {
+  position:sticky;
+  top: 1rem;
+  right: 1.2rem;
+  left: 55rem;
+  font-size: 2rem;
+  color: #66fcf1;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.close-button:hover {
+  color: #fff;
+  background-color: rgb(71, 71, 71);
+  border-radius: 1rem;
+  /* padding: 0.2rem 0.4rem; */
+}
+
+.preview-title {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #66fcf1;
+  font-weight: 600;
+  text-align: center;
+}
+
+.preview-abstract {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #d1d1d1;
+  line-height: 1.6;
+  text-align: justify;
+}
+
+.original_link {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: #66fcf1;
+  border-radius: 1rem;
+  color: #0b0c10;
+  text-decoration: none;
+  font-weight: 500;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+}
+.original_link:hover {
+  background-color: #2b6a66;
+  color: #ffffff;
+}
+
+.preview-meta p {
+  margin-bottom: 0.5rem;
+  color: #a9a9b3;
+  font-size: 0.95rem;
+}
+
+.preview-pdf {
+  margin-top: 2rem;
+  height: 500px;
+  width: 100%;
+  border: none;
+  border-radius: 12px;
+  box-shadow: inset 0 0 5px #66fcf1;
+}

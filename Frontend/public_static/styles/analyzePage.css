@@ -1,0 +1,117 @@
+.analyze-page {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background-color: #15171f;
+  min-height: 100vh;
+  overflow: hidden;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.analyze-sidebar {
+  position: absolute;
+  top: 5rem; /* Position correctly under any navbar/header */
+  left: 0;
+  background-color: #2e3440;
+  width: 260px; /* fixed clean width */
+  height: calc(100vh - 5rem); /* dynamic height */
+  overflow-y: auto;
+  border-right: 1px solid #3b4252;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 5;
+}
+
+.analyze-sidebar.visible {
+  transform: translateX(-100%);
+}
+
+.analyze-sidebar.hidden {
+  transform: translateX(0%);
+}
+
+/* --- Main content adapts --- */
+.analyze-main-content {
+  flex: 1;
+  margin-left: 0;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+/* --- Toggle button --- */
+.toggle-sidebar-btn {
+  position: fixed;
+  top: 6rem;
+  left: 1rem;
+  height: 3rem;
+  width: 3rem;
+  background: #5e81ac;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-weight: bold;
+  z-index: 1500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+/* --- Sidebar internal content --- */
+.analyze-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+/* --- Analyze empty state header --- */
+.analyze-header {
+  text-align: center;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+  animation: fadeInDown 0.6s ease-out;
+}
+
+.analyze-header h2 {
+  color: #00dfdf;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+}
+
+.analyze-header p {
+  color: #7dc1ef;
+  font-size: 1.2rem;
+}
+
+/* --- Analyze loading indicator --- */
+.analyze-loading {
+  color: #81a1c1;
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  animation: blink 1s infinite alternate;
+}
+
+/* --- Animations --- */
+@keyframes fadeInDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}

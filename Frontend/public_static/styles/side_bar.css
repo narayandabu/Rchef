@@ -1,0 +1,110 @@
+/* Sidebar Container */
+.side-menu-bar {
+  position: fixed;
+  top: 5rem;
+  left: 0;
+  width: 18rem;
+  height: 100vh;
+  background: linear-gradient(to bottom, #1f1f1f, #141414);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6);
+  transform: translateX(-120%);
+  transition: transform 0.5s ease-out;
+  z-index: 1001;
+  overflow-y: auto;
+}
+
+.side-menu-bar.open {
+  transform: translateX(0);
+}
+
+/* Overlay Behind Sidebar */
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sidebar-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Sidebar Title */
+.side-bar-title {
+  color: white;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Menu List */
+.side-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.side-menu-list button {
+  background-color: rgb(40, 40, 40);
+  color: azure;
+  height: 3.5rem;
+  border-radius: 1.5rem;
+  border: none;
+  font-size: 1.1rem;
+  padding: 0.8rem 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  transition: background-color 0.3s ease, transform 0.2s ease-in-out, box-shadow 0.3s ease;
+  font-weight: 500;
+  width: 100%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  gap: 1rem;
+}
+
+.side-menu-list button:hover {
+  background-color: #5d73b6;
+  transform: translateX(5px);
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.2);
+}
+
+.side-menu-list button.selected {
+  background-color: #7f9cf5;
+  color: white;
+  transform: translateX(5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.side-menu-list button i {
+  font-size: 1.4rem;
+  margin-right: 1rem;
+  color: #c7c7c7;
+  transition: color 0.2s ease;
+}
+
+.side-menu-list button:hover i {
+  color: white;
+}
+
+.side-menu-list button span {
+  font-size: 1rem;
+  font-weight: 500;
+  color: inherit;
+}

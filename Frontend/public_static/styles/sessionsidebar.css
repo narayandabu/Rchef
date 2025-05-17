@@ -1,0 +1,90 @@
+.session-sidebar {
+    width: 250px;
+    background-color: #ef77bf; /* light background */
+    border-right: 1px solid #e0e0e0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    z-index: 1500;
+  }
+  
+  .session-header {
+    display: flex;
+    background-color: #e7b0d8;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .session-header h3 {
+    font-size: 20px;
+    color: #333;
+    margin: 0;
+  }
+  
+  .new-session-btn {
+    background-color: #4f46e5; /* Primary button color */
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 18px;
+  }
+  
+  .new-session-btn:hover {
+    background-color: #4338ca; /* Darker shade on hover */
+  }
+  
+  .session-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .session-item {
+    background: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 14px;
+    color: #555;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background 0.2s ease;
+  }
+  
+  .session-item:hover {
+    background: #eef2ff;
+  }
+  
+  .session-item.active {
+    background-color: #dbeafe;
+    border-color: #60a5fa;
+  }
+  
+  .edit-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    color: #888;
+  }
+  
+  .edit-btn:hover {
+    color: #555;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+  }
+  
