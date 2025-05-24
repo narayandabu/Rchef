@@ -3,7 +3,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 110vh;
   width: 100%;
   background-color: #15171f;
   border-radius: 8px;
@@ -18,7 +18,7 @@
   overflow-y: auto;
   flex-direction: column;
   scroll-behavior: smooth;
-  width: 90%;
+  width: 98%;
   gap: 10px;
   
   animation: fadeIn 0.6s ease;
@@ -51,14 +51,15 @@
   animation: slideIn 0.3s ease forwards;
 }
 .analyze-message.user {
-  background-color: #3f73b3;
+  background-color: #303547;
   color: #f8f8f2;
   align-self: flex-end;
-  max-width: 15rem;
+  max-width: 25rem;
+  font-size: 1.2rem;
 }
 
 .analyze-message.bot {
-  background-color: #474747;
+  background-color: #15171f;
   color: #f8f8f2;
   align-self: flex-start;
   font-size: 1.3rem;
@@ -72,8 +73,6 @@
   bottom: 0.5rem;
   width: 90%;
   flex: 1;
-  margin-right: auto;
-  padding-right: auto;
   right: auto;
   display: flex;
   align-items: center;
@@ -81,8 +80,8 @@
   padding: 10px;
   background-color:#1e1e2e;
   border-radius: 20px;
-  /* border-top: 1px solid #44475a; */
-  /* margin-right: 4rem; */
+  left:4%;
+  gap:10px;
 }
 
 .Analyzer-Text-Area {
@@ -94,7 +93,6 @@
   border-radius: 20px;
   padding: 10px 15px;
   font-size: 1.5rem;
-  margin-right: 10px;
   resize: none;
   height: 50px;
   transition: box-shadow 0.2s ease;
@@ -121,12 +119,12 @@
 }
 
 .Analyzer-submit-button {
-  background-color: #81a1c1;
+  background-color: #47586a;
   color: #f8f8f2;
   border: none;
   border-radius: 50%;
-  width: 42px;
-  height: 42px;
+  width: 3rem;
+  height: 3rem;
   font-size: 20px;
   display: flex;
   justify-content: center;
@@ -141,14 +139,12 @@
 
 .Analyzer-Upload-Button {
   background-color: #2f3542;
-  color: #fff;
+  color: #ffffff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
-  font-size: 18px;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
-  margin-right: 10px;
   display: flex;
   align-items: center;
   justify-content: center;

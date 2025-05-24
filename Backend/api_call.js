@@ -16,31 +16,39 @@ function clean_text(text){
   return result;
 }
 // Python Sentiment Analysis...
-function api(data,model){
-    return new Promise((resolve, reject) => {
-    const pythonPath = 'C://Users//naray//OneDrive//Desktop//Devlopment//webdev//React//.venv//Scripts//python.exe';
-    const model_path = path.join(__dirname,'Aimodel',model)
-    const pythonProcess = spawn(pythonPath,[model_path])
-    try {  
-      pythonProcess.stdin.write(JSON.stringify(data));
-      pythonProcess.stdin.end();
-      pythonProcess.stdout.on('data', (data) => {
-        console.log("Hellow");
-        data = data.toString('utf-8');
-          console.log(data);
-          resolve(data);
-        });
-    }
-    catch (err) {
-        pythonProcess.stderr.on('data', (data) => {
-          console.error(`stderr: ${data}`);
-        });
-        pythonProcess.on('close', (code) => {
-          console.log(`Python process exited with code ${code}`);
-        });
-        reject(new Error('Error parsing JSON output from Python script: ' + err.message));
-    }
-    })
+function api(data, model) {
+  return new Promise((resolve, reject) => {
+    const pythonPath = 'C://Users//naray//Desktop//Devlopment//MyPython-Ai-ml-Projects//NeuroLinguo_WEB//.venv//Scripts//python.exe';
+    const modelPath = path.join(__dirname, 'Aimodel', model);
+
+    const pythonProcess = spawn(pythonPath, [modelPath]);
+
+    pythonProcess.stdin.write(JSON.stringify(data));
+    pythonProcess.stdin.end();
+
+    let output = '';
+    let errorOutput = '';
+
+    pythonProcess.stdout.on('data', (data) => {
+      output += data.toString();
+    });
+
+    pythonProcess.stderr.on('data', (data) => {
+      errorOutput += data.toString();
+    });
+
+    pythonProcess.on('close', (code) => {
+      if (code === 0) {
+        resolve(output.trim());
+      } else {
+        reject(new Error(`Python process exited with code ${code}: ${errorOutput}`));
+      }
+    });
+
+    pythonProcess.on('error', (err) => {
+      reject(new Error(`Failed to start Python process: ${err.message}`));
+    });
+  });
 }
 async function sentiment_api_call(userMessage){
     try{

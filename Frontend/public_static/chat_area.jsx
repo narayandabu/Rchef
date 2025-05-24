@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef } from 'react';
 import {format_text, to_server_api } from './funcs.jsx';
 import './styles/chatarea.css';
 import axiosInstance from './utils/axiosInstance';
+import { TbMessageForward } from "react-icons/tb";
+import { MdCopyAll } from "react-icons/md";
 
 const Chat_area = ({ onCopyToNotebook, currentTool }) => {
   const [text, setText] = useState('');
@@ -113,7 +115,7 @@ const Chat_area = ({ onCopyToNotebook, currentTool }) => {
                 title="Copy to Notebook"
                 onClick={() => onCopyToNotebook && onCopyToNotebook(msg.bot)}
               >
-                📄
+                <MdCopyAll size={30}/>
               </button>
             </div>
           </React.Fragment>
@@ -129,7 +131,7 @@ const Chat_area = ({ onCopyToNotebook, currentTool }) => {
           onChange={handleTextChange}
         />
         <button type="submit" className="Submit-Button" onClick={handleButtonClick} id="submit">
-          <b>↑</b>
+          <TbMessageForward size={36} />
         </button>
       </div>
     </div>

@@ -1,10 +1,23 @@
 .papers-display-container {
-  height: auto;
-  overflow-y: visible;
-  padding: 20px ;
+  max-height: 100vh; /* full viewport */
+  overflow-y: auto;  /* enables vertical scroll */
+  padding: 20px;
   background-color: #0b0c10;
   color: #f1f1f1;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+.papers-display-container::-webkit-scrollbar {
+  width: 10px;
+}
+
+.papers-display-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+.papers-display-container::-webkit-scrollbar-thumb {
+  background-color: #45a29e;
+  border-radius: 10px;
+  border: 2px solid #0b0c10;
 }
 .Main-title {
   margin: 20px 0 10px;
@@ -60,6 +73,7 @@
   justify-content: space-between;
   border: 1px solid #45a29e22;
   border-radius: 10px;
+  cursor:pointer;
   padding: 15px;
   flex: 1 1 280px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -87,7 +101,9 @@
 .paper-meta {
   font-size: 0.8rem;
   color: #a2a5a7;
-  margin-bottom: 10px;
+  max-height: 75px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .paper-badge {
@@ -95,6 +111,7 @@
   background-color: #45a29e;
   color: #0b0c10;
   padding: 4px 8px;
+  width: fit-content;
   border-radius: 12px;
   font-size: 0.75rem;
   margin-top: 5px;

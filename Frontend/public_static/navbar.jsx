@@ -3,10 +3,12 @@ import NotificationPanel from './notifications.jsx';
 import { useNavigate } from "react-router-dom";
 import axiosInstance from "./utils/axiosInstance";
 import "./styles/navbar.css";
+import { Link } from 'react-router-dom';
+import { PiToolbox } from "react-icons/pi";
+import { PiToolboxFill } from "react-icons/pi";
+import { CgProfile } from "react-icons/cg";
 
 const NavBar = ({ isOpen, toggleSidebar }) => {
-  const [notifications, setNotifications] = useState([]);
-  const [showNotifications, setShowNotifications] = useState(false);
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
@@ -33,28 +35,14 @@ const NavBar = ({ isOpen, toggleSidebar }) => {
       console.error("Logout failed:", message);
     }
   };
-
   const handleViewProfile = () => {
-    console.log("Viewing profile...");
+    navigate('/main/profile');
+
     // Add logic to route or open modal
   };
-
-  useEffect(() => {
-    const fetchNotifications = async () => {
-      try {
-        const res = await axiosInstance.get('/notifications');
-        setNotifications(res.data || []);
-      } catch (err) {
-        console.error("Error fetching notifications:", err);
-      }
-    };
-    fetchNotifications();
-  }, []);
-
   useEffect(() => {
     const handleClickOutside = (e) => {
       if (!e.target.closest('.account-section')) setShowDropdown(false);
-      if (!e.target.closest('.notification-section')) setShowNotifications(false);
     };
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
@@ -64,32 +52,21 @@ const NavBar = ({ isOpen, toggleSidebar }) => {
     <header className="nav-container">
       <div className="nav-left">
         <button onClick={toggleSidebar} className="menu_button">
-          {isOpen ? "✖" : "☰"}
+          {isOpen ? <PiToolboxFill size={32} />: <PiToolbox size={32}/> }
         </button>
-        <div className="logo-container">
-          <img src="../Logo-small.png" alt="logo" className="logo" />
-          <h1 className="navb">NeuroLinguo</h1>
-        </div>
+        <Link to="/" className="logo-link">
+          <div className="logo-container" >
+              <img src="../Logo-small.png" alt="logo" className="logo" />
+              <h1 className="navb" >LabCohort</h1>
+          </div>
+        </Link>
       </div>
-
       <div className="notification-section">
-        <button className="notification-button" onClick={() => setShowNotifications(!showNotifications)}>
-          🔔
-          {notifications.length > 0 && <span className="notification-badge">{notifications.length}</span>}
-        </button>
-        {showNotifications && (
-          <NotificationPanel
-            notifications={notifications}
-            setNotifications={setNotifications}
-            setShowNotifications={setShowNotifications}
-          />
-        )}
+          <NotificationPanel/>
       </div>
-
       <div className="account-section">
         <button className="account-button" onClick={toggleDropdown}>
-          <img src="../default-avatar.png" className="account-avatar" />
-          <i className="fas fa-chevron-down"></i>
+          <CgProfile size={42} />
         </button>
         {showDropdown && (
           <div className="account-dropdown">

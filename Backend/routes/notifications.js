@@ -52,9 +52,10 @@ router.get('/', authenticateToken, (req, res) => {
   const dbPath = getNotificationDBPath(email);
   const db = new sqlite3.Database(dbPath);
   ensureTable(db);
-  db.all(`SELECT * FROM notifications ORDER BY timestamp DESC LIMIT 50`, [], (err, rows) => {
+  db.all(`SELECT * FROM notifications WHERE read<1 ORDER BY timestamp DESC LIMIT 50`, [], (err, rows) => {
     db.close();
     if (err) return res.status(500).json({ message: 'Fetch error' });
+
     res.json(rows);
   });
 });
@@ -66,7 +67,6 @@ router.patch('/mark-read/:id', authenticateToken, (req, res) => {
   const dbPath = getNotificationDBPath(email);
   const db = new sqlite3.Database(dbPath);
   ensureTable(db);
-
   db.run(`UPDATE notifications SET read = 1 WHERE id = ?`, [id], function (err) {
     db.close();
     if (err) return res.status(500).json({ message: 'Failed to mark read' });

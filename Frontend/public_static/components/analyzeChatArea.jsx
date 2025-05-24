@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import './styles/analyzeChatArea.css';
 import {useEffect} from 'react';
+import { TbMessageForward } from "react-icons/tb";
+import { MdOutlineUploadFile } from "react-icons/md";
+
+
 export default function AnalyzeChatArea({onSendMessage, messages,onFileUpload }) {
   const [input, setInput] = useState('');
   const [text, setText] = useState('');
@@ -59,7 +63,8 @@ export default function AnalyzeChatArea({onSendMessage, messages,onFileUpload })
           className="Analyzer-Upload-Button"
           onClick={openFileSelector}
           title="Upload PDF"
-        >📄
+        >
+          <MdOutlineUploadFile size={32}/>
         </button>
         <textarea
             className="Analyzer-Text-Area"
@@ -70,7 +75,7 @@ export default function AnalyzeChatArea({onSendMessage, messages,onFileUpload })
         />
         <button type="submit" id='Analyzer-submit-button' className='Analyzer-submit-button'
           onClick={handleSubmit}>
-          <b>↑</b>
+          <TbMessageForward size={36} />
         </button>
       </div>
     </div>

@@ -49,11 +49,16 @@ export default function LoginPage() {
     try {
         const res = await axiosInstance.post('http://localhost:5000/api/login', { email, password });
         if (res.data.success) {
-            localStorage.setItem('token', res.data.token); // optional for auth routes
+            localStorage.setItem('token', res.data.token);
             localStorage.setItem('isLoggedIn', true);
             setIsFadingOut(true);
             setTimeout(() => navigate('/main'), 800);   
-           // Redirect to main page after successful login
+            const push = await axiosInstance.post('/notifications/push', {
+              content: "Logged in Successfully",
+              type: "info",
+              tool: "test",
+              route: "/"
+            });
       }
     } catch (err) {
       console.log(err);

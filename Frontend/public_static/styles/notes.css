@@ -1,7 +1,7 @@
 .notebook-panel {
     position: fixed;
     right: 0;
-    top: 0;
+    top: 5rem;
     height: 100vh;
     width: 400px;
     background-color: #1e1e2f;
@@ -10,7 +10,7 @@
     color: #fff;
     transform: translateX(100%);
     transition: transform 0.3s ease-in-out;
-    z-index: 1001;
+    z-index: 999;
   }
   
   .notebook-panel.open {
@@ -24,7 +24,7 @@
   }
   
   .notebook-textarea {
-    width: 100%;
+    width: 95%;
     height: 200px;
     background-color: #111;
     white-space: pre-wrap;
@@ -35,8 +35,22 @@
     font-family: monospace;
     border-radius: 8px;
     font-size: 1.2rem;
+    resize: none;
+  }
+  .notebook-textarea::-webkit-scrollbar {
+    cursor: pointer;
+    width: 12px;
+  }
+  .notebook-textarea::-webkit-scrollbar-track {
+        cursor: pointer;
+    background: #383753;
   }
   
+  .notebook-textarea::-webkit-scrollbar-thumb {
+        cursor: pointer;
+    background: #b4b4b5;
+    border-radius: 4px;
+  }
   .notebook-preview {
     margin-top: 1rem;
   }
@@ -58,13 +72,13 @@
     display: flex;
     gap: 0.5rem;
     margin-top: 1rem;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     z-index: 1000;
     margin-bottom: 2.5rem;
   }
   
   .notebook-buttons button {
-    background-color: #4a4aff;
+    background-color: #282889;
     border: none;
     padding: 0.5rem 0.8rem;
     color: white;
@@ -72,7 +86,9 @@
     cursor: pointer;
     z-index: 1000;
   }
-  
+  .notebook-buttons button:hover {
+    background-color: #3a3a8c;
+  }
   .close-btn {
     background: none;
     border: none;
@@ -83,14 +99,14 @@
   }
   .notebook-tabs {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     margin-bottom: 10px;
   }
   
   .notebook-tabs button {
     padding: 8px 16px;
     margin: 0 5px;
-    background-color: #b9b8b8;
+    background-color: #d1d0d0;
     border: none;
     border-radius: 8px;
     cursor: pointer;

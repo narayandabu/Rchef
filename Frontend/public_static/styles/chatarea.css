@@ -55,13 +55,18 @@
   }
   
   .Submit-Button {
-    background-color: var(--primary-purple);
-    color: white;
+    background-color: rgb(168, 68, 255);
+    color: rgb(255, 255, 255);
     border: none;
-    border-radius: 10px;
-    padding: 0.75rem 1rem;
-    font-size: 1.2rem;
+    border-radius: 2rem;
+    height: 4rem;
+    /* align-content: center; */
+    align-self: center;
+    /* align-items: center; */
+    padding: 15px 10px;
+    width: 4rem;
     cursor: pointer;
+    bottom: 1rem;
     transition: background-color 0.3s ease;
   }
   

@@ -1,0 +1,451 @@
+/* Overall Page Container */
+.profile-page {
+  background-color: #121417; /* Very dark background for the entire page */
+  height: 100vh; /* Ensure it takes full viewport height */
+  display: flex;
+  flex-direction: column; /* Stack sections vertically */
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  color: #e6e6e6; /* Default text color */
+}
+
+/* Custom Scrollbar for the page */
+.profile-page::-webkit-scrollbar {
+  height: 8px;
+  width: 8px; /* Changed from 4px for better visibility */
+}
+
+.profile-page::-webkit-scrollbar-track {
+  background: #1a1d25; /* Darker track */
+}
+
+.profile-page::-webkit-scrollbar-thumb {
+  background-color: #0f4c75; /* A more professional blue for the thumb */
+  border-radius: 4px;
+}
+
+/* Main Profile Container (top section) */
+.profile-container {
+  margin-top: 7rem; /* Space from the top (assuming a fixed header/navbar) */
+ /* Max width for the content area */
+  width: 95%; /* Occupy 90% of parent width, ensuring responsiveness */
+  margin-left: auto; /* Center the container */
+  margin-right: auto; /* Center the container */
+  padding: 2rem;
+  background-color: #1a1a2e; /* Dark background, consistent with previous */
+  border-radius: 12px; /* Consistent border-radius */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+  display: flex;
+  flex-direction: column; /* Default to column for small screens */
+  align-items: center; /* Center items */
+  gap: 2rem; /* Space between main sections */
+}
+
+/* Profile Image Section */
+.profile-image {
+  width: 15rem; /* Slightly smaller for better overall balance */
+  height: 15rem;
+  border-radius: 50%;
+  border: 3px solid #3f72af; /* Thicker, brighter blue border */
+  box-shadow: 0 0 20px rgba(63, 114, 175, 0.7); /* More intense glow */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  flex-shrink: 0; /* Prevent shrinking in row layout */
+}
+
+.prf-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  transition: transform 0.3s ease-in-out;
+}
+
+.prf-img:hover {
+  transform: scale(1.08); /* More pronounced zoom on hover */
+}
+
+/* Profile Info Section */
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  width: clamp(20rem, 70vw, 35rem); /* Wider clamp for more content */
+  background-color: #0f3460;
+  border: 1px solid #1a5691;
+  border-radius: 12px;
+  padding: 2rem; /* More padding */
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+}
+
+.profile-info-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem; /* Increased gap */
+}
+
+.profile-info input {
+  background-color: #162447;
+  border: 1px solid #0f4c75;
+  border-radius: 8px;
+  color: #e6e6e6;
+  font-size: 1.1rem;
+  padding: 0.9rem 1.2rem; /* More padding */
+  width: calc(100% - 2.4rem); /* Adjust for padding */
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-info input:disabled {
+  opacity: 0.7; /* Dim disabled inputs */
+  cursor: not-allowed;
+  background-color: #1a1d25; /* Slightly different background for disabled */
+  border-color: #0d2840;
+}
+
+.profile-info input::placeholder {
+  color: #a0a0a0;
+}
+
+.profile-info input:focus {
+  border-color: #66fcf1; /* Accent color on focus */
+  box-shadow: 0 0 10px rgba(102, 252, 241, 0.5); /* Accent glow on focus */
+}
+
+.profile-info-email {
+  opacity: 0.9;
+  font-weight: 500; /* Make email stand out slightly */
+}
+
+/* For browsers that try to autofill */
+.profile-info input:-webkit-autofill,
+.profile-info input:-webkit-autofill:hover,
+.profile-info input:-webkit-autofill:focus,
+.profile-info input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #162447 inset !important;
+  -webkit-text-fill-color: #e6e6e6 !important;
+}
+
+/* Contact Links Display (non-edit mode) */
+.contact-links-display {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem; /* Space between icons */
+  justify-content: center; /* Center icons */
+  margin-top: 1rem;
+}
+
+.contact-links-display a {
+  color: #c87816; /* Use accent color for icons */
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.contact-links-display a:hover {
+  color: #3f72af; /* Darker blue on hover */
+  transform: translateY(-3px); /* Lift effect */
+}
+
+/* Contact Links Edit (edit mode) */
+.contact-links-edit {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem; /* Closer gap for input fields */
+  margin-top: 0.5rem;
+}
+
+/* Profile Action Buttons Wrapper */
+.profile-actions {
+  display: flex;
+  gap: 1rem; /* Space between buttons */
+  margin-top: 1.5rem;
+  justify-content: center; /* Center buttons */
+}
+
+/* Buttons */
+.edit-btn,
+.save-btn,
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem; /* Space between icon and text */
+  padding: 0.8rem 1.5rem; /* More padding */
+  border-radius: 8px;
+  font-size: 1rem; /* Slightly smaller for text */
+  font-weight: 600; /* Bolder text */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  color: white;
+  border: none;
+  flex: 1; /* Allow buttons to grow and take equal space */
+  max-width: 180px; /* Max width for buttons */
+}
+
+.edit-btn {
+  background-color: #3f72af;
+}
+
+.edit-btn:hover {
+  background-color: #2a5a8f;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.save-btn {
+  background-color: #4CAF50;
+}
+
+.save-btn:hover {
+  background-color: #45a049;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.cancel-btn { /* Explicitly target cancel button */
+  background-color: #d9534f;
+}
+
+.cancel-btn:hover {
+  background-color: #c9302c;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Friends Section */
+.friends-section {
+  width: clamp(20rem, 70vw, 35rem); /* Consistent width */
+  background-color: #0f3460;
+  border: 1px solid #1a5691;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.friends-section h3 {
+  color: #8c8c8c;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+  border-bottom: 1px solid #1a5691;
+  padding-bottom: 0.5rem;
+}
+
+.friends-section p {
+  text-align: center;
+  color: #a0a0a0;
+  font-style: italic;
+}
+
+.friends-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem; /* Slightly more space */
+  justify-content: center;
+}
+
+.friends-section li {
+  background-color: #162447;
+  padding: 0.7rem 1.2rem; /* More padding */
+  border-radius: 25px; /* More rounded pill shape */
+  color: #66fcf1;
+  font-size: 0.95rem; /* Slightly smaller font for tags */
+  border: 1px solid #0f4c75;
+  white-space: nowrap; /* Prevent breaking names */
+}
+.profile-social-links {
+    display: flex;
+    flex-direction: column; /* Stack icons vertically */
+    gap: 1.5rem; /* Space between icons */
+    padding: 1.5rem 0; /* Vertical padding */
+    align-items: center; /* Center icons horizontally */
+}
+
+.profile-social-links a {
+    color: #bb691d; /* Accent color */
+    transition: transform 0.2s ease, color 0.3s ease;
+    display: flex; /* To center icon if it were text + icon */
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-social-links a:hover {
+    transform: scale(1.1);
+    color: #3f72af; 
+}
+
+@media (min-width: 768px) {
+    .profile-container {
+        flex-direction: row;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    .profile-info {
+        margin-right: 0; /* Reset margin */
+    }
+    .profile-social-links {
+        /* Position this next to profile-info */
+        /* For example, if profile-info and profile-social-links are siblings */
+        order: 3; /* If you want it after profile-info, assuming profile-info is order 2 */
+        margin-left: 1rem; /* Small gap from profile-info */
+    }
+}
+
+/* Styling for the new social edit inputs */
+.profile-social-edit-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-top: 1rem; /* Space above these inputs */
+    padding-top: 0.8rem;
+    border-top: 1px dashed #1a5691; /* Visual separation */
+}
+.profile-social-edit-inputs input {
+    /* Inherits most styles from .profile-info input */
+    font-size: 1rem; /* Slightly smaller for these links */
+    padding: 0.7rem 1rem;
+}
+
+/* Liked/Bookmarked Papers Section */
+.liked-papers-section, .bookmarked-papers-section { /* Apply to both sections */
+  margin-top: 3rem; /* More space from previous section */ /* Horizontal padding for consistent look */
+  width: 100%; /* Take full width */
+
+}
+
+.liked-papers-title, .bookmarked-papers-title {
+  font-size: 1.8rem; /* Larger heading */
+  font-weight: 600;
+  margin-bottom: 1.5rem; /* More space below title */
+  border-bottom: 2px solid #66fcf1;
+  padding-bottom: 0.7rem; /* More padding below border */
+  color: #66fcf1; /* Accent color for titles */
+  text-align: center; /* Center the titles */
+}
+
+/* Paper Grid for scrolling */
+.paper-grid {
+  display: flex;
+  gap: 1.5rem; /* Increased gap between cards */
+  overflow-x: auto; /* Horizontal scrolling */
+  padding-bottom: 1.5rem; /* More padding for scrollbar visibility */
+  scroll-snap-type: x mandatory; /* Optional: Snap to cards */
+  -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+.paper-grid::-webkit-scrollbar {
+  height: 8px; /* Thicker scrollbar */
+}
+
+.paper-grid::-webkit-scrollbar-track {
+  background: #1a1d25;
+  border-radius: 4px;
+}
+
+.paper-grid::-webkit-scrollbar-thumb {
+  background-color: #3f72af; /* Professional blue for paper scrollbar */
+  border-radius: 4px;
+}
+
+/* Individual Paper Card */
+.paper-card {
+  background: #1f222b;
+  border: 1px solid #30343f;
+  padding: 1.5rem; /* More padding */
+  border-radius: 12px; /* Softer corners */
+  min-width: 300px; /* Slightly wider cards */
+  max-width: 350px; /* Max width to prevent overly wide cards */
+  flex: 0 0 auto;
+  box-shadow: 0 2px 8px rgba(102, 252, 241, 0.15); /* Stronger, more subtle shadow */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  scroll-snap-align: start; /* Optional: Align to start for snapping */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Push like button to bottom */
+}
+
+.paper-card:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 15px rgba(102, 252, 241, 0.25); /* More prominent shadow on hover */
+}
+
+.paper-title {
+  font-size: 1.25rem; /* Larger title */
+  font-weight: 700; /* Bolder title */
+  margin-bottom: 0.8rem;
+  color: #e6e6e6; /* White for title */
+}
+
+.paper-abstract {
+  font-size: 0.95rem; /* Slightly larger abstract */
+  margin-bottom: 1rem;
+  color: #b0b0b0; /* Lighter grey for abstract */
+  line-height: 1.5; /* Better readability */
+  flex-grow: 1; /* Allow abstract to take available space */
+}
+
+.paper-meta {
+  font-size: 0.85rem; /* Slightly larger meta info */
+  margin-bottom: 1rem;
+  color: #909090; /* Darker grey for meta info */
+}
+
+.paper-meta strong {
+  color: #c0c0c0; /* Slightly lighter for strong text */
+}
+
+.paper-badge {
+  display: inline-block;
+  background-color: #0f4c75; /* A darker, professional blue for tags */
+  color: #66fcf1; /* Accent color for tag text */
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.3rem 0.7rem;
+  border-radius: 8px;
+  margin-top: 0.5rem; /* Space above badge */
+  border: 1px solid #1a5691; /* Subtle border */
+}
+
+/* Responsive Adjustments for larger screens */
+@media (min-width: 768px) {
+  .profile-container {
+    flex-direction: row; /* Layout side-by-side on larger screens */
+    justify-content: center; /* Center content horizontally */
+    align-items: flex-start; /* Align items to the top within the row */
+    gap: 4rem; /* More space between sections */
+    padding: 3rem; /* More padding for larger screens */
+  }
+
+  .profile-image {
+    margin-bottom: 0; /* Remove bottom margin in row layout */
+  }
+
+  .profile-info {
+    padding: 2.5rem; /* More padding for info box */
+  }
+
+  .profile-actions {
+    justify-content: flex-end; /* Align buttons to the right */
+  }
+
+  .edit-btn, .save-btn, .cancel-btn {
+    max-width: none; /* Remove max-width on larger screens */
+    width: auto; /* Let content determine width */
+    padding: 0.8rem 1.8rem; /* Adjust padding */
+  }
+}
+
+/* Adjustments for even larger screens (optional) */
+@media (min-width: 1024px) {
+  .profile-container {
+    gap: 6rem; /* Even more space */
+  }
+
+  .paper-grid {
+    padding: 0 1rem 1.5rem; /* Add horizontal padding to the grid itself */
+  }
+}

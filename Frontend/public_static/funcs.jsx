@@ -2,6 +2,9 @@ import axiosInstance from './utils/axiosInstance';
 
 // Format text with markdown-like rules
 function format_text(text) {
+  if(text === undefined || text === null) {
+    return "Some Error Occurred";
+  }
   return text
     .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
     .replace(/`(.*?)`/g, "<br><code class='code_area'>$1</code><br>")

@@ -15,7 +15,8 @@
   background-color: #2e3440;
   width: 260px; /* fixed clean width */
   height: calc(100vh - 5rem); /* dynamic height */
-  overflow-y: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
   border-right: 1px solid #3b4252;
   transform: translateX(-100%);
   transition: transform 0.3s ease-in-out;
@@ -44,10 +45,10 @@
 .toggle-sidebar-btn {
   position: fixed;
   top: 6rem;
-  left: 1rem;
+  left: 0rem;
   height: 3rem;
   width: 3rem;
-  background: #5e81ac;
+  background: #242629;
   color: white;
   border: none;
   border-radius: 50%;

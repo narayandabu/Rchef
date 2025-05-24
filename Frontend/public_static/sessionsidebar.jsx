@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import axiosInstance from './utils/axiosInstance';
 import './styles/sectionsidebar.css';
+// styles icons
+import { FaRegPlusSquare } from "react-icons/fa";
+import { MdOutlineEdit } from "react-icons/md";
+import { MdDeleteOutline } from "react-icons/md";
+import { FaSave } from "react-icons/fa";
 
 export default function SectionSidebar({setMessages, currentSectionId, onSelectSection, onCreateNewSection }) {
   const [sections, setSections] = useState([]);
@@ -75,7 +80,7 @@ export default function SectionSidebar({setMessages, currentSectionId, onSelectS
       <div className="section-header">
         <h3>Your Sessions</h3>
         <button onClick={handleCreate} className="new-section-btn">
-          ➕ New
+        <FaRegPlusSquare size={22}/>
         </button>
       </div>
       <div className="section-list">
@@ -93,33 +98,36 @@ export default function SectionSidebar({setMessages, currentSectionId, onSelectS
                   className="edit-input"
                 />
                 <button
+                  title='Save'
                   onClick={() => handleRename(section.session_id)}
                   className="save-btn"
                 >
-                  Save
+                  <FaSave size={24} color='white'/>
                 </button>
               </div>
             ) : (
               <div className="view-mode" onClick={() => handleSelect(section.session_id)}>
-                <span>{section.session_name}</span>
+                <div className='section-name'><span >{section.session_name}</span></div>
                 <div className="action-buttons">
                   <button
+                    title='Change Name'
                     className="edit-btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       startEditing(section.session_id, section.session_name);
                     }}
                   >
-                    ✏️
+                    <MdOutlineEdit color='white' size={24}/>
                   </button>
                   <button
+                    title='Delete'
                     className="delete-btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       handleDelete(section.session_id);
                     }}
                   >
-                    🗑️
+                    <MdDeleteOutline size={24} />
                   </button>
                 </div>
               </div>

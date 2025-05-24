@@ -4,6 +4,8 @@ import SectionSidebar from './sessionsidebar.jsx';
 import axiosInstance from './utils/axiosInstance';
 import { v4 as uuidv4 } from 'uuid';
 import './styles/analyzePage.css';
+import { FiBookOpen } from "react-icons/fi";
+import { MdOutlineMenuBook } from "react-icons/md";
 
 export default function AnalyzePage() {
   const [userInput, setUserInput] = useState('');
@@ -128,7 +130,7 @@ export default function AnalyzePage() {
         className="toggle-sidebar-btn"
         onClick={() => setSidebarVisible(!sidebarVisible)}
       >
-        {sidebarVisible ? "❌" : "📂"}
+         {sidebarVisible ? <MdOutlineMenuBook size={24} /> : <FiBookOpen size={24} />}
       </button>
 
       <div ref={sidebarRef} className={`analyze-sidebar ${sidebarVisible ? "hidden" : "visible"}`}>

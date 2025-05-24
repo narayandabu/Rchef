@@ -3,6 +3,7 @@ const jwt = require('jsonwebtoken');
 const path = require('path');
 const fs = require('fs');
 const sqlite3 = require('sqlite3').verbose();
+const { initializeUserData } = require('../utils/initialize_db');
 
 const JWT_SECRET =  'your-secret-key'; //process.env.JWT_SECRET || 'your-secret-key';
 const dbPath = path.join(__dirname, '..', 'database', 'users.db');
@@ -21,21 +22,7 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
     db.run(`INSERT INTO users (email, password) VALUES (?, ?)`, [email, hashedPassword], function (err) {
       if (err) return res.status(500).json({ success: false });
-
-      const userDir = path.join(__dirname, '..', 'database', email);
-      const chatDBPath = path.join(userDir, 'chats.db');
-
-      if (!fs.existsSync(userDir)) fs.mkdirSync(userDir, { recursive: true });
-
-      const chatDB = new sqlite3.Database(chatDBPath);
-      chatDB.run(`CREATE TABLE IF NOT EXISTS chats (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        user_message TEXT NOT NULL,
-        bot_reply TEXT NOT NULL,
-        tool_name TEXT,
-        timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
-      )
-      `);
+      initializeUserData(email);
       return res.status(201).json({ success: true, message: 'User created' });
     });
   });

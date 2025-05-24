@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 import './styles/notes.css';
+import { PiEyeDuotone } from "react-icons/pi";
+import { PiEyeFill } from "react-icons/pi";
+import { PiNotePencilBold } from "react-icons/pi";
+import { PiNotePencil } from "react-icons/pi";
+import { LuSave } from "react-icons/lu";
+import { IoMdDownload } from "react-icons/io";
+import { MdCleaningServices } from "react-icons/md";
 
 const Notebook = ({ isOpen, onClose,externalNote,setExternalNote}) => {
   // const [note, setNote] = useState('');
@@ -42,7 +49,7 @@ const Notebook = ({ isOpen, onClose,externalNote,setExternalNote}) => {
   return (
     <div className={`notebook-panel ${isOpen ? 'open' : ''}`}>
       <div className="notebook-header">
-        <h2>Notebook</h2>
+        <h2>Quick Note</h2>
         <button className="close-btn" onClick={onClose}>✖</button>
       </div>
       {/* Tabs */}
@@ -51,13 +58,13 @@ const Notebook = ({ isOpen, onClose,externalNote,setExternalNote}) => {
           className={activeTab === 'write' ? 'active' : ''}
           onClick={() => setActiveTab('write')}
         >
-          📝 Write
+           {activeTab === 'write' ? <PiNotePencilBold size={24}/>: <PiNotePencil size={24}/>}
         </button>
         <button
           className={activeTab === 'preview' ? 'active' : ''}
           onClick={() => setActiveTab('preview')}
         >
-          👁️ Preview
+          {activeTab === 'preview' ? <PiEyeFill size={24}/> :<PiEyeDuotone size={24}/>}
         </button>
       </div>
 
@@ -79,9 +86,9 @@ const Notebook = ({ isOpen, onClose,externalNote,setExternalNote}) => {
       )}
 
       <div className="notebook-buttons">
-        <button onClick={handleSave}>💾 Save</button>
-        <button onClick={handleExport}>⬇️ Export</button>
-        <button onClick={handleClear}>🧹 Clear</button>
+        <button className="notebook-button-save" onClick={handleSave} title='Save' ><LuSave size={24}/></button>
+        <button className="notebook-button-export" onClick={handleExport} title='Download'><IoMdDownload size={24}/></button>
+        <button className="notebook-button-clear" onClick={handleClear} title='Clear'><MdCleaningServices size={24} /></button>
       </div>
     </div>
   );

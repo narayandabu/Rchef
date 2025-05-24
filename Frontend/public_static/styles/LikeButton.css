@@ -1,0 +1,88 @@
+/* Global button styling */
+.like-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.like-button:hover {
+  transform: scale(1.2);
+}
+.like-button-container-card{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 0.5rem;
+  gap:0rem;
+  margin-left: 10.5rem;
+}
+.like-button-container-card > .like-button{
+  padding-left: 0.5rem;
+}
+.like-button-container-preview{
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  margin-top: 1rem;
+  gap:0rem; 
+}
+.likes-count {
+  font-size: 1.2rem;
+  margin-left: 0.4rem;
+  margin-bottom: 0.4rem;
+  /* transition: color 0.2s ease; */
+}
+/* Card-specific position */
+.like-button-card {
+  position: relative;
+  /* top:0.5rem; */
+  left: 7rem;
+  /* bottom:0.5rem */
+}
+/* Preview-specific size */
+.like-button-preview {
+  position: relative;
+  font-size: 2rem; /* Override if needed */
+  left: 1rem;
+  top:0.8rem
+}
+.like-button {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  font-size: 1.3rem;
+  transition: transform 0.2s ease;
+}
+
+.like-button.splash {
+  transform: scale(1.4);
+}
+
+.splash-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background-color: red;
+  opacity: 0.6;
+  animation: splash-ping 0.4s ease-out;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+@keyframes splash-ping {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(-50%, -50%) scale(2.5);
+    opacity: 0;
+  }
+}

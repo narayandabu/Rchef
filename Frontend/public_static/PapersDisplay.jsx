@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axiosInstance from './utils/axiosInstance';
 import "./styles/papers_display.css";
 import PaperPreviewModal from './paper.jsx'; // ✅ Make sure the file exists
+import LikeButton from './like_button.jsx';
+import { formatLikeCount } from './utils/formatLikes';
 
 const PapersDisplay = () => {
   const [arxivpapers, setarxivPapers] = useState([]);
@@ -28,15 +30,18 @@ const renderPaperCard = (paper, index) => (
   <div key={index} className="paper-card" onClick={() => setSelectedPaper(paper)}>
     <h3 className="paper-title">{paper.title}</h3>
     <p className="paper-abstract">
-      {paper.abstract.length > 250 ? paper.abstract.slice(0, 250) + "..." : paper.abstract}
+      {paper.abstract.length > 200 ? paper.abstract.slice(0, 200) + "..." : paper.abstract}
     </p>
     <div className="paper-meta">
-      <span><strong>Authors:</strong> {paper.authors}</span><br />
-      <span><strong>Published in:</strong> {paper.journal} ({paper.year})</span><br />
-      {paper.tags && (
-        <span className="paper-badge">{paper.tags}</span>
-      )}
+      <span><strong>Authors:</strong> {paper.authors.length > 150 ? paper.authors.slice(0, 150) + "..." : paper.authors}</span><br />
+      <span><strong>Published in:</strong> 
+      {paper.journal.length > 200 ? paper.journal.slice(0, 200) + "..." : paper.journal} 
+      ({paper.year.length > 200 ? paper.year.slice(0, 200) + "..." : paper.year})
+      </span><br />
     </div>
+    {paper.tags && (
+        <span className="paper-badge">{paper.tags}</span>)}
+    <LikeButton paper={paper} paperId={paper.id} className='card'/>
   </div>
 );
 
