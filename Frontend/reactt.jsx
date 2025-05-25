@@ -11,7 +11,7 @@ import Chat_area from './public_static/chat_area.jsx';
 import Analyzer from './public_static/AnalyzerPage.jsx';
 import Notebook from "./public_static/notes.jsx";
 import PapersDisplay from './public_static/PapersDisplay.jsx'; 
-import ProfilePage from './public_static/Profilepage';
+import ProfilePage from './public_static/profile_page/Profilepage';
 
 import { LuNotebookPen } from "react-icons/lu";
 
@@ -36,9 +36,9 @@ function MainLayout() {
           <Route path="/gemini" element={<Chat_area currentTool="Gemini" />} />
           <Route path="/analyze" element={<Analyzer />} />
           <Route path="/papers" element={<PapersDisplay />} />
-          <Route path="/profile" element={<ProfilePage />} />
-          <Route path="*" element={<Navigate to="/main" replace />} />
-
+          <Route path="/profile/:userId" element={<ProfilePage />} />
+          <Route path="/my-profile" element={<ProfilePage />} />
+          {/* <Route path="*" element={<Navigate to="/main" replace />} /> */}
         </Routes>
       </main>
 

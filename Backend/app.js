@@ -8,6 +8,7 @@ const typeRoutes = require('./routes/type');
 const papersRoute = require('./routes/papers');
 const analyzeRoutes = require('./routes/analyze');
 const notifications = require('./routes/notifications');
+const userprofile = require('./routes/userprofile');
 require('./Scheduler/papersscheduler'); // This runs the job scheduler for fetching papers
 
 
@@ -29,7 +30,7 @@ app.use('/api', typeRoutes);
 app.use('/api/papers', papersRoute);
 app.use('/api/analyze', analyzeRoutes);
 app.use('/api/notifications', notifications);
-
+app.use('/api/profile',userprofile);
 app.get('/', (req, res) => {
   res.status(200).json({ reply: 'Refreshed...' });
 });

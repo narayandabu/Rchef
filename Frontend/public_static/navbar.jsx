@@ -7,11 +7,9 @@ import { Link } from 'react-router-dom';
 import { PiToolbox } from "react-icons/pi";
 import { PiToolboxFill } from "react-icons/pi";
 import { CgProfile } from "react-icons/cg";
-
 const NavBar = ({ isOpen, toggleSidebar }) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
-
   const toggleDropdown = () => setShowDropdown(prev => !prev);
   const handleLogout = async () => {
     try {
@@ -36,9 +34,7 @@ const NavBar = ({ isOpen, toggleSidebar }) => {
     }
   };
   const handleViewProfile = () => {
-    navigate('/main/profile');
-
-    // Add logic to route or open modal
+    navigate(`/main/my-profile`);  
   };
   useEffect(() => {
     const handleClickOutside = (e) => {

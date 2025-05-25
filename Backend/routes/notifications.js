@@ -12,7 +12,20 @@ function getNotificationDBPath(email) {
   if (!fs.existsSync(userFolder)) fs.mkdirSync(userFolder, { recursive: true });
   return path.join(userFolder, 'notifications.db');
 }
-
+const find_by_id = async(userid)=> {
+  const dbPath = path.join(__dirname,'../database/users.db');
+  const db = new sqlite3.Database(dbPath);
+  return new Promise((resolve, reject) => {
+    db.get(`SELECT * FROM users WHERE id = ?`, [userid], (err, row) => {
+      db.close();
+      if (err) {
+        reject(err);
+      } else {
+        return resolve(row.email);
+      }
+    });
+  });
+}
 // Create table if not exists
 function ensureTable(db) {
   db.run(`CREATE TABLE IF NOT EXISTS notifications (
@@ -27,23 +40,42 @@ function ensureTable(db) {
 }
 
 // POST /api/notifications/push
-router.post('/push', authenticateToken, (req, res) => {
-  const { content, type, tool, route } = req.body;
-  const email = req.user.email;
-  const dbPath = getNotificationDBPath(email);
-  const db = new sqlite3.Database(dbPath);
+router.post('/push', authenticateToken, async(req, res) => {
+  const { content, type, tool, route, reciever_id} = req.body;
+  if(reciever_id && reciever_id !== req.user.email) {
+    await find_by_id(reciever_id).then((email) => {
+      const dbPath = getNotificationDBPath(email);
+      const db = new sqlite3.Database(dbPath);
+      console.log(email);
+      ensureTable(db);
+      db.run(
+        `INSERT INTO notifications (content, type, tool, route) VALUES (?, ?, ?, ?)`,
+        [content + email, type, tool, route],
+        function (err) {
+          db.close();
+          if (err) return res.status(500).json({ message: 'Failed to push notification' });
+          res.json({ success: true, id: this.lastID });
+        }
+      );
+    });
+  }
+  else{ 
+    const user_email = req.user.email;
+    const dbPath = getNotificationDBPath(user_email);
+    const db = new sqlite3.Database(dbPath);
 
-  ensureTable(db);
+    ensureTable(db);
 
-  db.run(
-    `INSERT INTO notifications (content, type, tool, route) VALUES (?, ?, ?, ?)`,
-    [content, type, tool, route],
-    function (err) {
-      db.close();
-      if (err) return res.status(500).json({ message: 'Failed to push notification' });
-      res.json({ success: true, id: this.lastID });
-    }
-  );
+    db.run(
+      `INSERT INTO notifications (content, type, tool, route) VALUES (?, ?, ?, ?)`,
+      [content, type, tool, route],
+      function (err) {
+        db.close();
+        if (err) return res.status(500).json({ message: 'Failed to push notification' });
+        res.json({ success: true, id: this.lastID });
+      }
+    );
+  }
 });
 
 // GET /api/notifications

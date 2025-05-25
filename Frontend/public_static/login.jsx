@@ -57,7 +57,8 @@ export default function LoginPage() {
               content: "Logged in Successfully",
               type: "info",
               tool: "test",
-              route: "/"
+              route: "/",
+              reciever_id:res.data.email,
             });
       }
     } catch (err) {
