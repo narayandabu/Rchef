@@ -26,7 +26,7 @@ LabCohort is a MERN stack web application designed for researchers, academics, a
 
 Seamlessly sign up and log in to your LabCohort account to access personalized features.
 
-[Alt text](screenshots/login.png)
+[plot](screenshots/login.png)
 
 
 ### 2. Personalized User Profiles
@@ -36,35 +36,35 @@ Manage your personal information, update your password, and showcase your online
 Connect with other researchers! Send friend requests, accept or decline incoming requests, and manage your network.
 #### 2. User Search
 Easily find and connect with specific users by searching for their IDs.
-[Alt text](screenshots/Profilepage.png)
+[plot](screenshots/Profilepage.png)
 
 
 ### 3. Comprehensive Research Paper Management
 
 Discover a vast collection of research papers. You can mark papers as liked or bookmarked to organize your research.
 
-[Alt text](screenshots/Paperspage.png)
+[plot](screenshots/Paperspage.png)
 
 ### 4. Chat With Your AI Assistant Directly Through Here
 
 Thought of talking to your favorite AI assistant but have to change tabs? No need to worry! With the help of API integration, you can directly chat with Gemini from the website itself while doing your other work.
 
-[Alt text](screenshots/Geminipage.png)
+[plot](screenshots/Geminipage.png)
 
 
 ### 5. Analyze Research Papers with a Single Button
 
 Analyzing research papers is not that easy, especially if you read them line by line. Now, with just one "analyze" button, you can summarize and extract key aspects of the paper along with many additional related topics.
 
-[Alt text](screenshots/PaperPreview.png)
-[Alt text](screenshots/AnalyzePage.png)
+[plot](screenshots/PaperPreview.png)
+[plot](screenshots/AnalyzePage.png)
 
 ### 6. QuickNote
 
 Take and download quick notes directly from the website, conveniently available on the right side of your screen.
 
-[Alt text](screenshots/QuickNoteWriter.png)
-[Alt text](screenshots/QuickNotePreview.png)
+[plot](screenshots/QuickNoteWriter.png)
+[plot](screenshots/QuickNotePreview.png)
 *
 
 ---
