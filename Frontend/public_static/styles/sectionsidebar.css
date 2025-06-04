@@ -96,7 +96,9 @@
 .section-item.active {
   background-color: #555a63;
 }
-
+.action-buttons{
+  display: flex;
+}
 /* Editable input */
 .section-item input {
   width: 100%;
@@ -108,7 +110,7 @@
   outline: none;
 }
 .section-name{
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 .edit-input {
   width: 95%;
@@ -128,13 +130,13 @@
   width: 100%;
 }
 /* Edit button */
-.edit-btn {
+.session-edit-btn {
   background: none;
   border: none;
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
-  background-color:solid #2c2f36;
+  background-color:solid #14213f;
 }
 .delete-btn {
   background: none;
@@ -142,9 +144,9 @@
   color: #ffffff;
   font-size: 16px;
   cursor: pointer;
-  background-color: transparent;
+  background-color:solid #2c2f36;
 }
-.edit-btn :hover {
+.session-edit-btn :hover {
   color: #7f7e7e;
 }
 .delete-btn :hover {

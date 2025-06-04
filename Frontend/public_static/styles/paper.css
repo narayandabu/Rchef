@@ -74,7 +74,10 @@
   font-weight: 600;
   text-align: center;
 }
-
+.paper-action-btns{
+  display: flex;
+  gap: 0.5rem;
+}
 .preview-abstract {
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
@@ -90,11 +93,29 @@
   border-radius: 1rem;
   color: #0b0c10;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 1000;
   margin-top: 1rem;
   transition: background-color 0.2s ease;
 }
 .original_link:hover {
+  background-color: #2b6a66;
+  color: #ffffff;
+}
+.analyze-btn {
+  display: inline-block;
+  padding: 0.6rem 1rem;
+  background-color: #66fcf1;
+  border-radius: 1rem;
+  color: #0b0c10;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 1000;
+  margin-top: 1rem;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+  /* max-height: 1rem; */
+}
+.analyze-btn:hover {
   background-color: #2b6a66;
   color: #ffffff;
 }

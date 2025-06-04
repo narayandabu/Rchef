@@ -26,55 +26,45 @@ LabCohort is a MERN stack web application designed for researchers, academics, a
 
 Seamlessly sign up and log in to your LabCohort account to access personalized features.
 
-**Screenshot:**
+[Alt text](screenshots/login.png)
 
 
 ### 2. Personalized User Profiles
 
 Manage your personal information, update your password, and showcase your online presence with integrated links to your GitHub, LinkedIn, Kaggle, and ResearchGate profiles.
-
-**Screenshot:**
+#### 1. Social Networking (Friends)
+Connect with other researchers! Send friend requests, accept or decline incoming requests, and manage your network.
+#### 2. User Search
+Easily find and connect with specific users by searching for their IDs.
+[Alt text](screenshots/Profilepage.png)
 
 
 ### 3. Comprehensive Research Paper Management
 
 Discover a vast collection of research papers. You can mark papers as liked or bookmarked to organize your research.
 
-**Screenshot :**
+[Alt text](screenshots/Paperspage.png)
 
 ### 4. Chat With Your AI Assistant Directly Through Here
 
 Thought of talking to your favorite AI assistant but have to change tabs? No need to worry! With the help of API integration, you can directly chat with Gemini from the website itself while doing your other work.
 
-**Screenshot:**
+[Alt text](screenshots/Geminipage.png)
 
 
 ### 5. Analyze Research Papers with a Single Button
 
 Analyzing research papers is not that easy, especially if you read them line by line. Now, with just one "analyze" button, you can summarize and extract key aspects of the paper along with many additional related topics.
 
-**Screenshot :**
+[Alt text](screenshots/PaperPreview.png)
+[Alt text](screenshots/AnalyzePage.png)
 
-
-### 6. Social Networking (Friends)
-
-Connect with other researchers! Send friend requests, accept or decline incoming requests, and manage your network.
-
-**Screenshot:**
-
-
-### 7. User Search
-
-Easily find and connect with specific users by searching for their username or ID.
-
-**Screenshot:**
-* `_media/user-search-results.png` (Screenshot of the friends section showing search results after typing in the search bar)
-
-### 8. QuickNote
+### 6. QuickNote
 
 Take and download quick notes directly from the website, conveniently available on the right side of your screen.
 
-**Screenshots:**
+[Alt text](screenshots/QuickNoteWriter.png)
+[Alt text](screenshots/QuickNotePreview.png)
 *
 
 ---

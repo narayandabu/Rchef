@@ -111,13 +111,13 @@ export default function SectionSidebar({setMessages, currentSectionId, onSelectS
                 <div className="action-buttons">
                   <button
                     title='Change Name'
-                    className="edit-btn"
+                    className="session-edit-btn"
                     onClick={(e) => {
                       e.stopPropagation();
                       startEditing(section.session_id, section.session_name);
                     }}
                   >
-                    <MdOutlineEdit color='white' size={24}/>
+                    <MdOutlineEdit color='white' size={30}/>
                   </button>
                   <button
                     title='Delete'
@@ -127,7 +127,7 @@ export default function SectionSidebar({setMessages, currentSectionId, onSelectS
                       handleDelete(section.session_id);
                     }}
                   >
-                    <MdDeleteOutline size={24} />
+                    <MdDeleteOutline size={30} />
                   </button>
                 </div>
               </div>

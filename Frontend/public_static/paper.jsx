@@ -42,15 +42,17 @@ const PaperPreviewModal = ({ paper, onClose }) => {
           {paper.tags && (
             <p><strong>Tags:</strong> {paper.tags}</p>
           )}
+          <div className='paper-action-btns'>
           {paper.link && (
             <p><a href={paper.link} target="_blank" rel="noopener noreferrer" className="original_link">🔗 View Original</a></p>
           )}
-          <button className="original_link" onClick={()=>handleAnalyzePaper(paper)}>Analyze</button>
+          <button className="analyze-btn" onClick={()=>handleAnalyzePaper(paper)}>Analyze</button>
           <LikeButton paper={paper} paperId={paper.id} className='preview'/>
         </div>
-      {feedbackMessage && (
-        <div className="feedback-popup">{feedbackMessage}</div>
-      )}
+        {feedbackMessage && (
+          <div className="feedback-popup">{feedbackMessage}</div>
+        )}
+      </div>
       </div>
 
     </div>
